@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BastianBastiasCOMP304Lab3</string>
+    <array name="exercises">
+        <item>Exercise 1</item>
+        <item>Exercise 2</item>
+        <item>Exercise 3</item>
+    </array>
 </resources>
