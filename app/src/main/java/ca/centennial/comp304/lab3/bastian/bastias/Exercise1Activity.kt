@@ -21,20 +21,22 @@ class Exercise1Activity:AppCompatActivity() {
     //
     private var startx = 10
     private var starty = 10
-    private var endx = 300
+    private var endx = 600
     private var endy = 300
 
     //
     private lateinit var canvas: Canvas
     private lateinit var extraBitmap: Bitmap
     private lateinit var bitmap: Bitmap
+
+    companion object {
+        val LINE_LARGE = 10
+    }
     //
     // Set up the paint with which to draw.
     private val paint = Paint().apply {
-        color = Color.MAGENTA
-        // Smooths out edges of what is drawn without affecting shape.
+        color = Color.RED
         isAntiAlias = true
-        // Dithering affects how colors with higher-precision than the device are down-sampled.
         style = Paint.Style.STROKE // default: FILL
         strokeWidth = 10f // default: Hairline-width (really thin)
     }
@@ -52,16 +54,15 @@ class Exercise1Activity:AppCompatActivity() {
         //tell canvas about the content view
         canvas = Canvas(bitmap)
         //set the background for your drawings
-        canvas.drawColor(Color.CYAN) //background
+        //canvas.drawColor(Color.GRAY) //background
         //setup the image view
         reusableImageView = findViewById<View>(R.id.ImageViewForDrawing) as ImageView
         //tell image view for the bitmap format/content
         reusableImageView.setImageBitmap(bitmap)
         reusableImageView.setVisibility(View.VISIBLE)
         textView = findViewById<View>(R.id.textView1) as TextView
-        textView!!.text = resources.getString(R.string.help)
-        //
-        //reusableImageView.setImageResource(R.drawable.green_rect);
+        textView!!.text = "Y = ".plus(endy.toString())
+        //textView!!.text = resources.getString(R.string.help)
         //spinner behaviour
         val thicknessArray = resources.getIntArray(R.array.thickness_values)
 
@@ -75,21 +76,68 @@ class Exercise1Activity:AppCompatActivity() {
                 Toast.makeText(this@Exercise1Activity, "Selected value: $selectedValue", Toast.LENGTH_SHORT).show()
                 paint.strokeWidth= selectedValue.toFloat()
             }
+            override fun onNothingSelected(parent: AdapterView<*>?) {          }
+        }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                // Handle when nothing is selected
+        binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            val selectedRadioButton = findViewById<RadioButton>(checkedId)
+            if (selectedRadioButton != null) {
+                val selectedValue = selectedRadioButton.text.toString()
+                when(selectedValue){
+                    "Cyan"->{
+                        paint.color=Color.CYAN
+                    }
+                    "Red"->{
+                        paint.color=Color.RED
+                    }
+                    "Yellow"->{
+                        paint.color=Color.YELLOW
+                    }
+                }
             }
         }
+
+        binding.btnDown.setOnClickListener {
+            endy = endy + LINE_LARGE
+            drawLine(canvas)
+        }
+        binding.btnUp.setOnClickListener {
+            reusableImageView.setFocusable(true)
+            reusableImageView.requestFocus()
+            endy = endy - LINE_LARGE
+            drawLine(canvas)
+            //moveRect(canvas);
+            reusableImageView!!.invalidate()
+        }
+        binding.btnLeft.setOnClickListener {
+            reusableImageView.setFocusable(true)
+            reusableImageView.requestFocus()
+            endx = endx - LINE_LARGE
+            drawLine(canvas)
+            //moveRect(canvas);
+            reusableImageView!!.invalidate()
+        }
+
+        binding.btnRight.setOnClickListener {
+            reusableImageView.setFocusable(true)
+            reusableImageView.requestFocus()
+            endx = endx + LINE_LARGE
+            drawLine(canvas)
+            //moveRect(canvas);
+            reusableImageView.invalidate()
+        }
+
 
     } // end of onCreate
 
     fun clearCanvas(v: View?) {
-        canvas?.drawColor(Color.CYAN)
+        canvas?.drawColor(Color.WHITE)
+        canvas = Canvas(bitmap)
         startx = 10
         starty = 10
         endx = 300
         endy = 300
-        //textView!!.text = resources.getString(R.string.help)
+        textView!!.text = "Y = ".plus(endy.toString())//resources.getString(R.string.help)
     }
 
     fun startDrawing(v: View?) {
@@ -97,60 +145,11 @@ class Exercise1Activity:AppCompatActivity() {
     }
 
     fun drawLine(canvas: Canvas) {
-        textView.text = endy.toString()
+        textView.text = "Y = ".plus(endy.toString())
         //canvas.drawLine(100,100,300,300,paint);
         canvas.drawLine(startx.toFloat(), starty.toFloat(), endx.toFloat(), endy.toFloat(), paint!!)
         startx = endx
         starty = endy
     }
 
-    //Activate the DPAD on emulator:
-    //change the settings in config.ini file in .android folder
-    //hw.dPad=yes
-    //hw.mainKeys=yes
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        when (keyCode) {
-            KeyEvent.KEYCODE_DPAD_DOWN -> {
-                //reusableImageView.setVisibility(View.VISIBLE);
-                //reusableImageView.setFocusable(true);
-                //reusableImageView.requestFocus();
-                endy = endy + 5
-                drawLine(canvas)
-                //moveRect(canvas);
-                //reusableImageView.invalidate();
-                return true
-            }
-            KeyEvent.KEYCODE_DPAD_RIGHT -> {
-                //reusableImageView.setVisibility(View.VISIBLE);
-                reusableImageView.setFocusable(true)
-                reusableImageView.requestFocus()
-                endx = endx + 5
-                drawLine(canvas)
-                //moveRect(canvas);
-                reusableImageView.invalidate()
-                return true
-            }
-            KeyEvent.KEYCODE_DPAD_LEFT -> {
-                //reusableImageView.setVisibility(View.VISIBLE);
-                reusableImageView.setFocusable(true)
-                reusableImageView.requestFocus()
-                endx = endx - 5
-                drawLine(canvas)
-                //moveRect(canvas);
-                reusableImageView!!.invalidate()
-                return true
-            }
-            KeyEvent.KEYCODE_DPAD_UP -> {
-                //reusableImageView.setVisibility(View.VISIBLE);
-                reusableImageView.setFocusable(true)
-                reusableImageView.requestFocus()
-                endy = endy - 5
-                drawLine(canvas)
-                //moveRect(canvas);
-                reusableImageView!!.invalidate()
-                return true
-            }
-        }
-        return false
-    }
 }

@@ -44,6 +44,7 @@
                 <RadioButton
                     android:id="@+id/radioOption1"
                     android:layout_width="match_parent"
+                    android:checked="true"
                     android:layout_height="match_parent"
                     android:text="Red" />
 
@@ -143,7 +144,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:minHeight="300px"
-        android:minWidth="300px"
+        android:minWidth="600px"
         android:layout_margin="20px">
     </ImageView>
 </LinearLayout>
