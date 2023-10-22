@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select exercises to demonstrate:"
+        android:textColor="#13C481"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/list_view"/>
+
+     <!--   <TextView
+            android:id="@+id/exercice1_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Exercise 1"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/exercice2_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Exercise 2"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/exercice3_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Exercise 3"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+    -->
+
+</LinearLayout>
