@@ -7,11 +7,10 @@ import android.graphics.Paint
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import ca.centennial.comp304.lab3.bastian.bastias.databinding.ActivityExercise1Binding
-import ca.centennial.comp304.lab3.bastian.bastias.databinding.ActivityMainBinding
+
 
 class Exercise1Activity:AppCompatActivity() {
     private lateinit var binding: ActivityExercise1Binding
@@ -37,7 +36,7 @@ class Exercise1Activity:AppCompatActivity() {
         isAntiAlias = true
         // Dithering affects how colors with higher-precision than the device are down-sampled.
         style = Paint.Style.STROKE // default: FILL
-        strokeWidth = 50f // default: Hairline-width (really thin)
+        strokeWidth = 10f // default: Hairline-width (really thin)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +62,25 @@ class Exercise1Activity:AppCompatActivity() {
         textView!!.text = resources.getString(R.string.help)
         //
         //reusableImageView.setImageResource(R.drawable.green_rect);
+        //spinner behaviour
+        val thicknessArray = resources.getIntArray(R.array.thickness_values)
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, thicknessArray.map { it.toString() })
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinner.adapter = adapter
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedValue = thicknessArray[position]
+                // Handle the selected integer value
+                Toast.makeText(this@Exercise1Activity, "Selected value: $selectedValue", Toast.LENGTH_SHORT).show()
+                paint.strokeWidth= selectedValue.toFloat()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle when nothing is selected
+            }
+        }
+
     } // end of onCreate
 
     fun clearCanvas(v: View?) {
@@ -71,7 +89,7 @@ class Exercise1Activity:AppCompatActivity() {
         starty = 10
         endx = 300
         endy = 300
-        textView!!.text = resources.getString(R.string.help)
+        //textView!!.text = resources.getString(R.string.help)
     }
 
     fun startDrawing(v: View?) {

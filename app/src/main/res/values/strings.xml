@@ -6,4 +6,11 @@
         <item>Exercise 3</item>
     </array>
     <string name="help">Use key down or right to draw</string>
+    <integer-array name="thickness_values">
+        <item>10</item>
+        <item>14</item>
+        <item>18</item>
+        <item>24</item>
+        <item>30</item>
+    </integer-array>
 </resources>
