@@ -5,4 +5,5 @@
         <item>Exercise 2</item>
         <item>Exercise 3</item>
     </array>
+    <string name="help">Use key down or right to draw</string>
 </resources>

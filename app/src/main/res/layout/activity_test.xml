@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-
-
-<TableLayout
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:columnCount="3"
     android:padding="16dp"
     android:layout_gravity="center"
@@ -20,15 +12,15 @@
     <TableRow>
         <GridLayout android:orientation="vertical" android:layout_weight="1">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Line thickness"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Line thickness"/>
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
         </GridLayout>
 
         <GridLayout android:orientation="vertical" android:layout_weight="1">
@@ -60,7 +52,7 @@
             </RadioGroup>
         </GridLayout>
 
-        <!--        <View android:layout_weight="1" />-->
+<!--        <View android:layout_weight="1" />-->
         <GridLayout android:orientation="vertical" android:layout_weight="1">
             <TextView
                 android:layout_width="match_parent"
@@ -110,11 +102,11 @@
 
     <TableRow>
         <Button
-            android:id="@+id/btnClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="clearCanvas"
-            android:text="Clear" />
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="clearCanvas"
+                android:text="Clear" />
 
         <TextView
             android:id="@+id/textView1"
@@ -126,14 +118,16 @@
 
     </TableRow>
 
-</TableLayout>
+    <TableRow>
+        <ImageView
+            android:id="@+id/ImageViewForDrawing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="500px"
+            android:minWidth="300px"
+            android:layout_margin="20px"
+            android:layout_weight="3">
+        </ImageView>
+    </TableRow>
 
-    <ImageView
-        android:id="@+id/ImageViewForDrawing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="300px"
-        android:minWidth="300px"
-        android:layout_margin="20px">
-    </ImageView>
-</LinearLayout>
+</TableLayout>
