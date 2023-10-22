@@ -123,7 +123,7 @@
             android:id="@+id/ImageViewForDrawing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="500px"
+            android:minHeight="300px"
             android:minWidth="300px"
             android:layout_margin="20px"
             android:layout_weight="3">

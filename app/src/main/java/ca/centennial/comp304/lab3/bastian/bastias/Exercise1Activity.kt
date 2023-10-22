@@ -5,7 +5,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -18,10 +17,10 @@ class Exercise1Activity:AppCompatActivity() {
     private lateinit var reusableImageView: ImageView
     private lateinit var textView: TextView
 
-    //
+
     private var startx = 10
     private var starty = 10
-    private var endx = 600
+    private var endx = 300
     private var endy = 300
 
     //
