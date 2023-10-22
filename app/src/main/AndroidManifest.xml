@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Exercise1Activity"/>
+        <activity android:name=".Exercise2Activity"/>
     </application>
 
 </manifest>

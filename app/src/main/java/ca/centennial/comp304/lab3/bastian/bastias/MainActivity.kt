@@ -1,7 +1,6 @@
 package ca.centennial.comp304.lab3.bastian.bastias
 
 import android.content.Intent
-import ca.centennial.comp304.lab3.bastian.bastias.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -29,11 +28,11 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, Exercise1Activity::class.java)
                     startActivity(intent)
                 }
-                /*"Exercise 2" -> {
-                    val intent = Intent(this, Exercise2Activity2::class.java)
+                "Exercise 2" -> {
+                    val intent = Intent(this, Exercise2Activity::class.java)
                     startActivity(intent)
                 }
-                "Exercise 3" -> {
+                /*"Exercise 3" -> {
                     val intent = Intent(this, Exercise3Activity::class.java)
                     startActivity(intent)
                 }

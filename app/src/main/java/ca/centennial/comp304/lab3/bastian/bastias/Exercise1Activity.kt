@@ -1,5 +1,6 @@
 package ca.centennial.comp304.lab3.bastian.bastias
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -151,4 +152,9 @@ class Exercise1Activity:AppCompatActivity() {
         starty = endy
     }
 
+    override fun onBackPressed() {
+        val intent = Intent(this@Exercise1Activity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

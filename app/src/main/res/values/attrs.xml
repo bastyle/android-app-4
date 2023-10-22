@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PriceTextView">
+        <!--<attr name="price" format="reference|float" />-->
+        <!--<attr name="date" format="integer" />-->
+        <attr name="date" format="string" />
+    </declare-styleable>
+</resources>
