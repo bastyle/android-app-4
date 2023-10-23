@@ -12,7 +12,7 @@
         android:theme="@style/Theme.BastianBastiasCOMP304Lab3"
         tools:targetApi="31">
         <activity
-            android:name=".Exercise3Activity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
         </activity>
         <activity android:name=".Exercise1Activity"/>
         <activity android:name=".Exercise2Activity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Exercise3Activity"/>
     </application>
 
 </manifest>
