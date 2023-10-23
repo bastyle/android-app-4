@@ -32,14 +32,11 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, Exercise2Activity::class.java)
                     startActivity(intent)
                 }
-                /*"Exercise 3" -> {
+                "Exercise 3" -> {
                     val intent = Intent(this, Exercise3Activity::class.java)
                     startActivity(intent)
                 }
-                // Add more cases for additional exercises
-                else -> {
-                    // Handle any other case or provide a default action
-                */
+
             }
         }
     }
