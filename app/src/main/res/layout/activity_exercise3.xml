@@ -15,7 +15,7 @@
         android:id="@+id/earth"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:src="@drawable/earth" />
 
 </RelativeLayout>

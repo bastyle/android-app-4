@@ -3,6 +3,6 @@
     <declare-styleable name="PriceTextView">
         <!--<attr name="price" format="reference|float" />-->
         <!--<attr name="date" format="integer" />-->
-        <attr name="date" format="string" />
+        <attr name="longDate" format="reference|string" />
     </declare-styleable>
 </resources>

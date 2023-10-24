@@ -30,7 +30,7 @@ class Exercise1Activity:AppCompatActivity() {
     private lateinit var bitmap: Bitmap
 
     companion object {
-        val LINE_LARGE = 10
+        val LINE_LARGE = 20
     }
     //
     // Set up the paint with which to draw.

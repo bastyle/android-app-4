@@ -9,7 +9,7 @@
 		android:duration="4000"
 		/>
 
-	<translate android:toYDelta="800"
+	<!--<translate android:toYDelta="800"
 		android:fillAfter="true"
 		android:duration="2000"
 		/>
@@ -17,7 +17,7 @@
 		android:fillAfter="true"
 		android:duration="2200"
 		android:startOffset="2000"
-		/>
+		/>-->
 
 	<translate android:toXDelta="-600"
 		android:fillAfter="true"
@@ -26,7 +26,7 @@
 
 
 
-	<translate android:toYDelta="-800"
+	<!--<translate android:toYDelta="-800"
 		android:fillAfter="true"
 		android:duration="2000"
 		android:startOffset="4000"
@@ -36,13 +36,13 @@
 		android:fillAfter="true"
 		android:duration="2000"
 		android:startOffset="6000"
-		/>
+		/>-->
 
 
 
-<!--<rotate
+<rotate
 	android:fromDegrees="0"
 	android:toDegrees="360"
-	android:duration="10000"/>-->
+	android:duration="8000"/>
 	
 </set>

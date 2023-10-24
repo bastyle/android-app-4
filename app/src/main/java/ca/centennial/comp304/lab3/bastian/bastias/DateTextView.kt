@@ -14,23 +14,18 @@ class DateTextView  @JvmOverloads constructor(
 ) :
     AppCompatTextView(context, attrs, defStyleAttr) {
 
-    private var mDate = "0"
+    private var longDate = 0L
 
-    var date: String
-        get()= mDate
+    var date: Long
+        get() = longDate
         set(date){
-            mDate= date
-            val calendar = Calendar.getInstance()
-            calendar.timeInMillis = date.toLong()
-            text = dateFormatter.format(calendar.time)
+            longDate = date
+            text = longDate.toString()
         }
 
     companion object {
-        private val CURRENCY_FORMAT = NumberFormat.getCurrencyInstance()
-        private var dateFormatter: SimpleDateFormat = SimpleDateFormat("EEEE, MMMM dd, yyyy", Locale.getDefault())
+
     }
-
-
 
     init {
         val a = context.obtainStyledAttributes(
@@ -39,23 +34,10 @@ class DateTextView  @JvmOverloads constructor(
             defStyleAttr,
             0
         ) // An optional R.style to use for default values
-        if (a.hasValue(R.styleable.PriceTextView_date)) {
-            date = a.getString(R.styleable.PriceTextView_date).toString() // default value
+        if (a.hasValue(R.styleable.PriceTextView_longDate)) {
+            date = a.getString(R.styleable.PriceTextView_longDate)?.toLong() ?: 0L // default value
         }
         a.recycle() //recycles the TypedArray
     }
 
-    fun setLongDate(year: Int, month: Int, day:Int) {
-        val calendar = Calendar.getInstance()
-        calendar.set(year, month, day)
-        val longDate = calendar.timeInMillis
-        val longDateFormatted = SimpleDateFormat("EEEE, MMMM dd, yyyy", Locale.getDefault()).format(Date(longDate))
-        text = "Selected Date: $longDateFormatted\nSelected Date (Long): $longDate"
-    }
-
-    fun setLongDate(date: Long) {
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = date
-        text = dateFormatter.format(calendar.time)
-    }
 }

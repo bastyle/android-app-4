@@ -22,13 +22,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/date_picker" />
 
+    <TextView
+        android:id="@+id/dateStringView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@id/date_picker"/>
+
+
 
     <ca.centennial.comp304.lab3.bastian.bastias.DateTextView
         android:id="@+id/dateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toEndOf="@id/dateTextView"
-        app:layout_constraintTop_toBottomOf="@id/date_picker"/>
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@id/dateStringView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
